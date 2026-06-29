@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국 자본시장 데이터 인프라 분석 — MSCI 편입 &amp; 금융세제</title>
+<meta name="description" content="MSCI 선진국 편입 낙제와 금융세제 데이터 인프라 미비의 구조적 동형성 분석 및 표준화 로드맵">
+<style>
+  :root{ --navy:#142A4A; --accent:#1F4E79; --gold:#8A3F12; --grey:#555; --line:#e2e2e2; --bg:#f6f8fb; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:"맑은 고딕","Malgun Gothic",-apple-system,sans-serif; color:#1a1a1a;
+        background:var(--bg); line-height:1.6; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
+  header{ background:linear-gradient(135deg,#142A4A,#1F4E79); color:#fff; padding:54px 0 46px; }
+  header .wrap{ text-align:center; }
+  header h1{ font-size:30px; letter-spacing:-0.5px; }
+  header .sub{ font-size:16px; opacity:.92; margin-top:8px; font-weight:bold; color:#ffd9b8; }
+  header .meta{ font-size:13px; opacity:.8; margin-top:10px; }
+  .lead{ background:#fff; border:1px solid var(--line); border-left:5px solid var(--gold);
+         border-radius:8px; padding:18px 20px; margin:28px 0; font-weight:bold; color:var(--navy);
+         box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  h2{ color:var(--navy); font-size:20px; margin:30px 0 14px; }
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:680px){ .cards{ grid-template-columns:1fr; } header h1{ font-size:24px; } }
+  .card{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 22px 20px;
+         text-decoration:none; color:inherit; display:block; transition:.15s;
+         box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 6px 18px rgba(20,42,74,.13); border-color:#9fb6d4; }
+  .card .tag{ display:inline-block; font-size:11px; font-weight:bold; color:#fff; background:var(--accent);
+              border-radius:4px; padding:3px 9px; margin-bottom:10px; }
+  .card .tag.b{ background:var(--gold); }
+  .card h3{ color:var(--navy); font-size:17px; margin-bottom:8px; }
+  .card p{ font-size:13.5px; color:#444; }
+  .card .go{ margin-top:12px; font-size:13px; font-weight:bold; color:var(--accent); }
+  ul.points{ background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px 20px 16px 38px;
+             box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  ul.points li{ margin:7px 0; font-size:14px; }
+  b.k{ color:var(--gold); }
+  footer{ text-align:center; color:var(--grey); font-size:12.5px; padding:30px 0 40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>한국 자본시장 데이터 인프라 분석</h1>
+    <div class="sub">MSCI 선진국 편입 &amp; 금융세제 — 두 ‘낙제’의 구조적 동형성</div>
+    <div class="meta">데이터 분석 · 정책 설계 · 표준화 로드맵 &nbsp;|&nbsp; 2026-06</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="lead">핵심 명제 — 한국 자본시장의 두 ‘낙제’는 펀더멘털 문제가 아니라
+  “데이터는 이미 있는데 연결표준이 없다”는 동일한 병리다. 둘 다 신규입법보다 ‘표준화·연결’로 풀리며,
+  공교롭게 양쪽 모두 <b class="k">‘배당(분배) 데이터’</b>가 공통의 약한 고리다.</div>
+
+  <h2>📑 문서</h2>
+  <div class="cards">
+    <a class="card" href="MSCI낙제_금융세제데이터인프라_비교.html">
+      <span class="tag">분석</span>
+      <h3>MSCI 낙제 vs 금융세제 데이터 인프라 미비</h3>
+      <p>MSCI 선진국 편입 5대 낙제 사유와 소득성격(배당/ROC) 단절을 나란히 놓고, 두 문제의 구조적 동형성을 비교한다.</p>
+      <div class="go">문서 열기 →</div>
+    </a>
+    <a class="card" href="MSCI표준화_로드맵_재정경제부거래소.html">
+      <span class="tag b">로드맵</span>
+      <h3>MSCI 표준화 로드맵 — 재정경제부·거래소</h3>
+      <p>5대 사유를 ‘데이터 연결표준’ 과제로 재구성한 24개월 무입법 실행안. ④배당 표준을 세제 소득성격 코드와 통합한다.</p>
+      <div class="go">문서 열기 →</div>
+    </a>
+  </div>
+
+  <h2>🔑 한눈에</h2>
+  <ul class="points">
+    <li><b>MSCI 5대 사유</b> — ①역외 원화 ②투자자 등록·계좌 ③거래소 데이터 사용 ④배당 절차 ⑤공매도 운영</li>
+    <li><b>금융세제 단절</b> — 소득성격이 발행사 → QI → <b class="k">KSD·증권사 단계에서 단절</b> → 자본환급(ROC)이 배당으로 이중과세</li>
+    <li><b>공통 처방</b> — 이미 보유한 데이터를 연결하는 <b class="k">단일 표준</b>(분배정보 표준)으로 MSCI 개선 + ROC 해소 동시 달성</li>
+    <li><b>거버넌스</b> — 재정경제부 총괄, 금융위·KRX·KSD·증권사·한국은행 협의체, 표준·고시·업무규정 수준(무입법 우선)</li>
+  </ul>
+
+  <footer>
+    이 페이지는 정적 HTML로 작성되었으며 GitHub Pages로 게시할 수 있습니다.<br>
+    Source: <code>index.html</code> · <code>README.md</code> · 두 분석 문서
+  </footer>
+
+</div>
+</body>
+</html>
