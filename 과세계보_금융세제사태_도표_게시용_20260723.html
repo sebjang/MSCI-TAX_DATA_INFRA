@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="과세계보 권위 위계(발행사·금융기관·납세자·과세관청/L2T)와 금융세제 데이터 인프라 공백 — TSLY 2024.1-2 단절 사례·전국 규모·피해 추정·이중 실패. 발행사 8937·KSD 정보공개 회신 근거 구조 자료.">
+<meta name="description" content="과세사실 계보와 증거 위계·오류 발생 지점 — 발행사 기업행위에서 국내 과세자료까지. 재정경제부 금융세제과-576·KSD 회신 근거, 발행사 사실자료와 과세관청 최종 사실판단권 분리.">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="과세계보 오류 지점 도표 — 발행사 기업행위에서 국내 과표까지">
+<meta property="og:title" content="과세사실 계보와 증거 위계 · 오류 발생 지점">
 <meta property="og:type" content="article">
-<title>과세계보 오류 지점 도표 — 발행사 기업행위에서 국내 과표까지</title>
+<title>과세사실 계보와 증거 위계 · 오류 발생 지점 — 발행사 기업행위에서 국내 과세자료까지</title>
 <style>
   :root{
     --paper:#F4F2EC; --panel:#FBFAF6; --ink:#1B2230; --muted:#5A6172;
@@ -253,6 +253,16 @@
   .cpair .ci .cite{color:var(--navy);font-weight:650}
   @media (max-width:640px){.cpair{grid-template-columns:1fr}}
 
+  /* ---- law box (재경부 576) + analysis ---- */
+  .lawbox{background:var(--gold-bg);border:1px solid var(--gold-line);border-radius:12px;
+    padding:18px 22px;box-shadow:var(--shadow);margin-bottom:16px}
+  .lawbox .lh{font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:750;color:var(--gold);margin-bottom:9px}
+  .lawbox p{margin:0;font-size:13px;line-height:1.62;color:var(--ink)}
+  .lawbox ul{margin:9px 0 0;padding-left:18px;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .lawbox li{margin:3px 0}
+  .analysis{font-size:12.5px;color:var(--muted);margin:12px 2px 0;line-height:1.6}
+  .analysis b{color:var(--ink)}
+
   /* ---- legend + footer ---- */
   .legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px;font-size:12px;color:var(--muted)}
   .legend .k{display:inline-flex;align-items:center;gap:7px}
@@ -273,38 +283,38 @@
 <body>
 <div class="wrap">
   <header>
-    <p class="eyebrow">과세계보 권위 위계 · 오류 지점 도표</p>
-    <h1>발행사 기업행위에서 국내 과표까지 —<br>진실은 어디서 어긋나는가</h1>
-    <p class="thesis">위계는 아래에서 올라오지 않는다. <b>기업행위, 사실, 그 자체</b>에서 내려온다. 발행사가 확정한 소득성격·주식수·식별자가 유일한 진실이며, 그 아래 국제원장 전 체인이 이를 놓친다.</p>
+    <p class="eyebrow">과세사실 계보 · 증거 위계 · 오류 발생 지점</p>
+    <h1>발행사 기업행위에서 국내 과세자료까지 —<br>소득성격은 어디에서 단절되는가</h1>
+    <p class="thesis"><b>발행사 기업행위 자료는 소득성격·분배금 구성·수량조정·식별자 변경을 재구성하는 최상위 1차 사실자료</b>다. 국내 과세 여부는 이 원천자료와 국내외 제반 규정을 종합하여 사실판단하여야 한다.</p>
     <div class="priority">
-      <span class="pnode apex-node"><b>발행사</b><small>사실 창조</small></span>
+      <span class="pnode apex-node"><b>발행사</b><small>기업행위·원천사실 생성</small></span>
       <span class="parrow">▸</span>
-      <span class="pnode"><b>금융기관</b><small>전달·집행</small></span>
+      <span class="pnode"><b>금융기관</b><small>권리배분·전달·원천징수 집행</small></span>
       <span class="parrow">▸</span>
-      <span class="pnode"><b>납세자</b><small>수령·신고</small></span>
+      <span class="pnode"><b>납세자</b><small>개인별 취득·보유·수령·신고</small></span>
       <span class="parrow">▸</span>
-      <span class="pnode verifier"><b>과세관청</b><small>종점 검증</small></span>
+      <span class="pnode verifier"><b>과세관청</b><small>최종 사실판단·세법 적용</small></span>
     </div>
-    <p class="pcaption">우선순위의 자연 질서 — <b>과세관청은 사실의 기점이 아니라 종점 검증자</b>다.<span class="l2t">원장에서 세액까지 · L2T</span></p>
+    <p class="pcaption">과세관청은 기업행위 창설자나 원천자료 생산자가 아니라, 발행사 자료·금융기관 처리내역·납세자별 취득계보를 종합하여 <b>국내 세법상 소득성격·과표를 최종 사실판단</b>하는 기관이다.<span class="l2t">원장에서 세액까지 · L2T</span></p>
     <div class="meta">
-      <span>자료출처 <b>발행사 8937·ICI Primary / KSD 정보공개 회신</b></span>
-      <span>범위 <b>과세계보 권위 위계·구조 (개별 사례 판정 제외)</b></span>
-      <span>성격 <b>구조 설명 자료 · 세무판정 아님</b></span>
+      <span>자료출처 <b>발행사 8937·ICI Primary / KSD 정보공개 회신 / 재정경제부 금융세제과-576(2026.6.26.)</b></span>
+      <span>범위 <b>사실계보·증거 위계·오류 발생 지점</b></span>
+      <span>성격 <b>데이터 대조·계산 시나리오 자료 · 세법판정 아님</b></span>
     </div>
   </header>
 
   <section>
-    <div class="sec-h"><span class="sec-n">Ⅰ</span><h2>권위 위계 — 진실의 하강과 단절</h2></div>
-    <p class="sec-sub">최상위 진실(발행사 기업행위)이 국제원장 체인을 따라 내려오며, 각 단계가 원본을 수집하지 못하고 단절된다. 종점 국내 과표에는 소득성격이 사라진 잠정치만 도달한다.</p>
+    <div class="sec-h"><span class="sec-n">Ⅰ</span><h2>증거 위계 — 사실계보의 하강과 단절</h2></div>
+    <p class="sec-sub">발행사 기업행위 자료(최상위 1차 사실자료)가 국제예탁·원천징수 체계를 거쳐 국내 과세자료로 내려오며, 각 단계에서 원본 소득성격이 연결되지 못하고 단절된다. 국내 과세자료에는 소득성격이 생략된 잠정값만 도달한다.</p>
 
     <div class="ladder">
       <div class="rung apex">
         <div class="apex-inner">
-          <div class="apex-crown">◆ 최상위 · 진실 그 자체 · 창조자</div>
+          <div class="apex-crown">◆ 최상위 1차 사실자료 · 기업행위 원천</div>
           <h3>발행사 기업행위</h3>
           <div class="apex-facts">
-            <span class="fact"><b>소득성격</b> 8937·ICI Box3 (배당/ROC/자본이득/STCG)</span>
-            <span class="fact"><b>주식수</b> 분할·역병합 (질량보존)</span>
+            <span class="fact"><b>소득성격</b> 8937·ICI Box3 (미국 세법 분류)</span>
+            <span class="fact"><b>주식수</b> 분할·역병합 (수량 연속성)</span>
             <span class="fact"><b>식별자</b> CUSIP/ISIN 변경 §6045B</span>
             <span class="fact"><b>정정</b> 8937 Corrected</span>
           </div>
@@ -318,9 +328,9 @@
       </div>
 
       <div class="rung brk">
-        <div class="r-lay"><span class="lname">③ QI Pool · 1042-S</span><span class="lrole">집계신고 (Pool)</span></div>
-        <div class="r-carry"><span class="lab">전달해야 할 것</span><span>개인별 소득성격·확정세액</span></div>
-        <div class="r-stat"><span class="badge b-break">✗ 단절</span><span class="verdict">개인 원장 부존재 — 집계만 신고</span></div>
+        <div class="r-lay"><span class="lname">③ QI Pool · 1042-S</span><span class="lrole">집계보고 (Pool)</span></div>
+        <div class="r-carry"><span class="lab">연결 필요</span><span>개인별 지급·원천징수 자료와 발행사 소득성격의 연결</span></div>
+        <div class="r-stat"><span class="badge b-flow">Pool 집계</span><span class="verdict">외부 제출자료에서 개인별 계보 식별 곤란</span></div>
       </div>
 
       <div class="rung brk">
@@ -338,11 +348,11 @@
       <div class="rung brk">
         <div class="r-lay"><span class="lname">⑥ 국내 과표 · 경정</span><span class="lrole">종소세 · 양도세</span></div>
         <div class="r-carry"><span class="lab">도달하는 것</span><span>잠정과표 · 잠정세액 · 최종세액뿐</span></div>
-        <div class="r-stat"><span class="badge b-break">✗ 소실</span><span class="verdict">소득성격·국외환급세액 사라짐 → 경정으로 사후복원</span></div>
+        <div class="r-stat"><span class="badge b-break">✗ 미반영</span><span class="verdict">소득성격 생략된 잠정값이 과세 기초자료로 사용 → 경정으로 사후복원</span></div>
       </div>
     </div>
 
-    <div class="chain-note"><span class="dot">✗</span><span>③~⑥ 네 단계가 발행사 원본과 단절. 진실(발행사 Box3)은 존재하나 국내 종점에 도달하지 못한다 — 이것이 「권위–집행 괴리」다. 개인원장(⑤)은 이 단절의 종점이며, 발행사 기업행위를 독립적으로 재현·검증할 구조가 없다.</span></div>
+    <div class="chain-note"><span class="dot">✗</span><span>③~⑥ 각 단계에서 원본 소득성격이 연결되지 못한다. 발행사 Box3는 존재하나 국내 개인별 과세자료에 연결되지 못하고, 소득성격이 생략된 잠정값이 과세 기초자료로 쓰인다. 개인원장(⑤)은 이 단절의 종점이며, 발행사 원본을 독립적으로 재현·검증할 추적체계가 없다.</span></div>
   </section>
 
   <section>
@@ -352,9 +362,9 @@
       <div class="tstep issuer">
         <div class="tnum">1</div>
         <div class="tcard">
-          <span class="tsrc s-issuer">발행사 · IRS Form 8937</span>
-          <b class="th">소득성격 확정 — 전액 자본반환(ROC 100%)</b>
-          <p>YieldMax가 IRS에 제출한 2024 귀속 8937(Date of Action 2024-10-31, CUSIP 88636J444): TSLY 1·2월 분배는 100% ROC.</p>
+          <span class="tsrc s-issuer">발행사 · Form 8937 (미국 세법)</span>
+          <b class="th">발행사 Form 8937상 미국 세법 기준 ROC 100%</b>
+          <p>YieldMax가 공개한 2024 귀속 Form 8937(Date of Action 2024-10-31, CUSIP 88636J444)에 따르면, TSLY 1·2월 분배는 미국 연방세법상 비과세 현금분배로 분류되어 주주의 세무상 취득가액을 감소시키는 것으로 제시된다. <b>국내법상 자본 감소 대가 해당 여부의 핵심 사실자료</b>.</p>
           <div class="roc2">
             <span class="rc">2024년 1월 <b>$0.55650/주 · ROC 100%</b></span>
             <span class="rc">2024년 2월 <b>$0.40460/주 · ROC 100%</b></span>
@@ -381,8 +391,8 @@
         <div class="tnum">4</div>
         <div class="tcard">
           <span class="tsrc s-dom">국내 종점 · 증권사 원천징수</span>
-          <b class="th">배당으로 과세 — 소득성격(ROC) 미반영</b>
-          <p>구 ISIN 하 1·2월 분배가 <b>배당소득으로 15% 원천징수</b>됐다. 발행사가 확정한 ROC 100%가 국내 과표에 도달하지 못했다 — 위계 역전의 종점.</p>
+          <b class="th">국내 개인별 과세자료에 소득성격 미반영</b>
+          <p>구 ISIN 하 1·2월 분배가 <b>배당소득으로 15% 원천징수</b>됐다. 발행사 자료에 표시된 ROC 100% 정보가 국내 개인별 과세자료에 반영되지 않았으며, 그 결과 국내법상 자본 감소 대가 해당 여부를 판정하는 데 필요한 원천 사실자료가 누락되었다.</p>
         </div>
       </div>
       <div class="tstep recover">
@@ -399,149 +409,124 @@
             <div class="tk2">
               <span class="lab">② 국내 측</span>
               <b>국세청 경정청구</b>
-              <p>§45의2·§17②·예규 576. ROC는 취득가 초과분만 의제배당 → 취득가 ≥ 누적ROC이면 전액 비과세.</p>
+              <p>§45의2·§17②·재정경제부 금융세제과-576(2026.6.26.). 국내법상 자본 감소 대가에 해당한다면, 취득에 사용한 금액을 초과하는 부분만 의제배당 → 취득가액 ≥ 누적ROC이면 과세대상 초과액 0(납세자 청구기준).</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p class="dlabel" style="margin-top:20px">사태의 경과 <span>— 자본반환(본래 비과세)이 다층 과세로 누적</span></p>
-    <div class="tbl-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>단계</th><th>과세 층위</th><th>근거 · 성격</th><th style="text-align:right">실제 부과</th><th style="text-align:right">정상(ROC 비과세)</th><th>상태</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tk">기준</td><td>국내 ROC 총액</td><td>자본반환 · 본래 비과세 (8937 Box3 100%)</td>
-            <td class="amt">$8,723.74</td><td class="amt">—</td><td><span class="v ok">발행사 확정</span></td>
-          </tr>
-          <tr>
-            <td class="tk">1</td><td>미국 원천세 15%</td><td>ROC × 15% 원천징수</td>
-            <td class="amt">$1,308.56</td><td class="amt zero">$0</td><td><span class="v ok">청구서 확정</span></td>
-          </tr>
-          <tr>
-            <td class="tk">2</td><td>국내 원천징수 14%</td><td>배당 과세 · 외국납부세액공제와 상계</td>
-            <td class="amt prov">잠정(상계)</td><td class="amt zero">$0</td><td><span class="v unv">상계구조·잠정</span></td>
-          </tr>
-          <tr>
-            <td class="tk">3</td><td>종소세 누진</td><td>금융소득 종합과세(비교과세) 해당 시</td>
-            <td class="amt prov">납세자별</td><td class="amt zero">$0</td><td><span class="v unv">잠정·미확정</span></td>
-          </tr>
-          <tr>
-            <td class="tk">4</td><td>건보료 추징</td><td>소득 증가분 반영</td>
-            <td class="amt prov">납세자별</td><td class="amt zero">$0</td><td><span class="v unv">잠정·미확정</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="casc-note">본래 세부담 0(자본반환)이 원천징수 → 종합과세 → 건보로 누적되는 것이 사태의 본질이다. 국내 ROC 총액의 KRW 환산은 원천징수일 환율 적용(별도), 2~4단계 금액은 납세자 종합소득·건보 자료 확보 후 확정된다. 미국 15%($1,308.56)만 청구서로 문서 확정되었고, 나머지 층위는 구조로만 표기한다.</p>
-
     <div class="natl">
-      <div class="nsrc">전국 규모 · KSD 정보공개 청구5 회신</div>
+      <div class="nsrc">전국 규모 · KSD 정보공개 회신(청구5)</div>
       <div class="nbig">USD 15,995,511.58</div>
-      <div class="ncap">TSLY 구 ISIN(US88634T7090) 2024년 1·2월 분배(Gross) 총액 — 전국 전 투자자 합산. 위 익명 1인 사례($8,723.74)는 이 국가 규모 자본반환 풀의 일부다.</div>
+      <div class="ncap">TSLY 구 ISIN(US88634T7090) 2024년 1·2월 분배(Gross) 총액 — 전국 전 투자자 합산. 발행사 Form 8937상 미국 세법 기준 ROC 100%. 위 익명 1인 사례($8,723.74)는 이 전국 분배액의 일부다.</div>
       <div class="nrow">
-        <span>소득성격 <b>ROC 100% (8937) → 전액 자본반환</b></span>
+        <span>미국 세법 분류 <b>ROC 100% (Form 8937)</b></span>
         <span>미국 원천세 15% <b>≈ $2,399,326.74</b></span>
-        <span>정상(비과세) <b>$0</b></span>
       </div>
-      <div class="nrow"><span class="warn">⚠ KSD 자백 — 투자자·계좌 수 데이터 부존재(예탁참가자·증권사 단위 관리). 국가가 피해 인원·규모를 산정할 수 없다.</span></div>
+      <div class="nrow"><span class="warn">국가기관 회신으로 확인된 제도적 한계 — 예탁참가자(증권사) 단위 관리로, 제공된 자료만으로는 투자자·계좌 단위 규모 산정이 곤란하다.</span></div>
     </div>
 
-    <p class="dlabel" style="margin-top:20px">피해 규모 추정 <span>— 제시된 가정(중간값 세율·환율 ₩1,500)에 따른 시나리오 산술</span></p>
+    <p class="dlabel" style="margin-top:20px">잠재 과세노출액 추정 <span>— 제시된 가정(세율·환율 ₩1,500)에 따른 단순 시나리오 · 확정 피해액 아님</span></p>
     <div class="tbl-scroll">
       <table>
         <thead>
-          <tr><th>피해 층위</th><th style="text-align:right">가정 세율</th><th style="text-align:right">산출액 (원)</th></tr>
+          <tr><th>구분</th><th style="text-align:right">금액 (원)</th><th>성격</th></tr>
         </thead>
         <tbody>
-          <tr><td>기준 — 국내 ROC 총액 <span class="who">USD 15,995,511.58 × ₩1,500</span></td><td class="amt">—</td><td class="amt">23,993,267,370</td></tr>
-          <tr><td>ROC 미환급 (국내 배당 원천)</td><td class="amt">14%</td><td class="amt">3,359,057,432</td></tr>
-          <tr><td>지방세 미환급 (지방소득세)</td><td class="amt">1.4%</td><td class="amt">335,905,743</td></tr>
-          <tr><td>종소세 누진 (중간값)</td><td class="amt">14%</td><td class="amt">3,359,057,432</td></tr>
-          <tr><td>건보료 추징 (중간값)</td><td class="amt">6%</td><td class="amt">1,439,596,042</td></tr>
-          <tr class="sum"><td><b>국내 피해 합계</b></td><td class="amt"><b>35.4%</b></td><td class="amt"><b>8,493,616,649</b></td></tr>
+          <tr><td>기준 — 전국 분배액 <span class="who">USD 15,995,511.58 × ₩1,500</span></td><td class="amt">23,993,267,370</td><td>과세노출 산정 기준</td></tr>
+          <tr><td>국내 최종 소득세·지방세 (15.4%)</td><td class="amt">3,694,963,175</td><td>단순 시나리오</td></tr>
+          <tr><td>건강보험료 (6%)</td><td class="amt">1,439,596,042</td><td>단순 시나리오</td></tr>
+          <tr class="sum"><td><b>국내 잠재 노출 합계 (21.4%)</b></td><td class="amt"><b>5,134,559,217</b></td><td><b>원천징수 중복 제거</b></td></tr>
+          <tr><td>미국 원천징수 노출액 (15%)</td><td class="amt">3,598,990,110</td><td>미국 측 환급·정정 대상(별도 트랙)</td></tr>
+          <tr><td>한·미 전체 현금유출 노출</td><td class="amt">8,733,549,327</td><td>관할·환급 가능성 별도</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="estim">추정 국내 피해 규모 ≈ <b>85억 원</b><span>가정 시나리오 · TSLY 구 ISIN 2024년 1·2월 전국 분배(Gross USD 15,995,511.58) 기준</span></div>
-    <p class="casc-note">가정 명시: 종소세 누진·건보료는 납세자별로 상이하여 <b>중간값</b>을 적용한 추정이며 확정액이 아니다. 개인별 실제 데이터는 부존재(KSD)하므로 이는 규모 추정치다. 미국 원천세 15%(≈ $2,399,326.74 = ₩3,598,990,110)는 별도 환급 트랙으로 위 합계에 미포함. 계산기준(세율·환율)은 의뢰인이 제시했고, 최종 세액·비과세 인정은 과세관청의 판단 영역이다.</p>
-    <div class="tclose"><span class="i">ⓘ</span><span>환급 실행(QI)·비과세 인정(과세관청)의 최종 판단은 각 기관의 몫이다. 본 계보·경과는 납세자가 발행사·국가기관 문서로 구성한 청구 근거를 위계 구조로 제시할 뿐, 세액의 당부를 확정하지 않는다.</span></div>
+    <div class="estim">국내 잠재 과세·사회보험 노출액 ≈ <b>51.3억 원</b><span>한·미 전체 현금유출 노출 ≈ 87.3억 원 · 단순 시나리오이며 개인별 확정 피해액이 아님</span></div>
+    <p class="casc-note">중복 제거 — 국내 원천징수세액은 종합소득세 산출세액에서 기납부세액으로 공제되므로, 원천징수와 종합소득세를 각각 더하지 않고 국내 최종 소득세 부담(가정 14%)+지방소득세(1.4%)+건강보험료(6%)=21.4%로 산정했다. 종합소득세율·건보료율을 일률 적용한 단순 시나리오이며, 개인별 확정액은 종합소득·건보 자료 확보 후 산정된다. 계산기준(세율·환율)은 의뢰인이 제시했고, 최종 세액·비과세 인정은 과세관청의 판단 영역이다.</p>
+    <div class="tclose"><span class="i">ⓘ</span><span>본 계보·추정은 납세자가 발행사·국가기관 문서로 구성한 청구 근거와 계산 시나리오를 제시할 뿐, 세액의 당부를 확정하지 않는다. 환급 실행(QI)·비과세 인정(과세관청)의 최종 판단은 각 기관의 몫이다.</span></div>
   </section>
 
   <section>
-    <div class="sec-h"><span class="sec-n">Ⅲ</span><h2>국가기관 공식 확인</h2></div>
-    <p class="sec-sub">위 단절이 개인의 주장이 아님을 국가기관이 문서로 확인한다. 5기관 정보공개 청구에 대한 KSD 회신.</p>
+    <div class="sec-h"><span class="sec-n">Ⅲ</span><h2>국가기관 회신 — 확인된 법리와 제도적 한계</h2></div>
+    <p class="sec-sub">외국 상장 ETF 지급액의 과세구조와 소득성격 정보의 연결 상태를, 재정경제부·예탁결제원 공식 회신으로 확인한다.</p>
+    <div class="lawbox">
+      <div class="lh">재정경제부 금융세제과-576 (2026.6.26.) · 공식 확인 법리</div>
+      <p>외국 상장 ETF 지급액은 <b>이익·잉여금의 분배이면 배당소득</b>, <b>자본 감소로 주주가 취득한 금전이면 ETF 취득에 사용한 금액을 초과하는 부분만 의제배당</b>이며, 어느 유형에 해당하는지는 <b>국내외 제반 규정에 따른 사실판단 사항</b>이다.</p>
+      <ul>
+        <li>지급액의 명칭이나 증권사 원천징수 결과만으로 국내 배당소득이 확정되지 않는다 — 지급 원천과 자본거래의 실질을 먼저 판정해야 한다.</li>
+        <li>즉 소득성격이 먼저 사실판단되고, 그 성격에 따라 과세 여부·과표가 뒤따른다. (다만 발행사 분류가 곧 한국 세법상 최종판정을 의미하는 것은 아니다.)</li>
+      </ul>
+    </div>
     <div class="evidence">
-      <div class="src">한국예탁결제원 정보공개 결정통지서 · 접수 16764618</div>
-      <blockquote>“소득성격 데이터는 <b>존재한다</b> — 미국 ICI가 매년 BOX1·STCG·<b>BOX3(ROC)</b>로 구분하여 공시하는 <b>공개 데이터</b>다. 예탁결제원은 이를 <b>원본으로 수집하지 않고</b>, DTC 참가자(글로벌커스터디언)가 처리한 내역을 전달받는다. … 소득성격 정보는 <b>국내 단계에서 단절</b>되고, 투자자에게 도달하는 것은 잠정과표·잠정세액·최종세액뿐이다. 최종과표·소득성격·국외환급세액은 어디론가 사라진다. … 소득성격을 고지하는 <b>의무가 없고, 국가 인프라가 존재하지 않는다.</b>”</blockquote>
+      <div class="src">한국예탁결제원 정보공개 결정통지서 · 접수 16764618 (원문 인용)</div>
+      <blockquote>“소득성격 데이터는 존재한다 … 예탁결제원은 ICI BOX1·BOX3·ROC·STCG·LTCG 정보를 원본으로 수집하지 않고, DTC 참가자인 외국보관기관(글로벌커스터디언)이 원천징수·환급처리한 내역을 데이터의 형태로 전달받고 있다 … 소득성격을 고지하는 의무가 없고, 국가 인프라가 존재하지 않는다.”</blockquote>
       <div class="attr">
         <span>청구 취지 <b>세액 다툼 아님 · 투자자 독립검증 가능성 확인 · 공익</b></span>
         <span>5기관 <b>금감원 · 금융위 · 재경부 · KSD · 국세청</b></span>
       </div>
     </div>
+    <p class="analysis"><b>청구인 분석</b> — 위 회신에 따르면 국내 단계에서는 발행사 ICI 원본(소득성격)을 직접 수집·검증하기보다 글로벌 커스터디언이 처리한 결과를 전달받는 구조로, 개인별 소득성격을 원천자료와 연결해 독립적으로 재현·검증하기 어렵다. 별도 회신(청구5)은 예탁참가자(증권사) 단위 관리로 총 투자자·계좌 수 데이터가 부존재함을 확인했다.</p>
   </section>
 
   <section>
     <div class="sec-h"><span class="sec-n">Ⅳ</span><h2>과세계보 3축 · 과세관청의 위치</h2></div>
-    <p class="sec-sub">과세 이력(신고·납세)에 근거한 청구는 세 축이 정합할 때 성립한다. 그리고 이 3축 위에서 과세관청의 자리가 곧 우선순위 문제의 핵심이다.</p>
+    <p class="sec-sub">과세 이력(신고·납세)에 근거한 청구는 세 축이 정합할 때 성립한다. 그리고 이 3축 위에서 과세관청의 위치와 추적가능성이 곧 구조적 쟁점의 핵심이다.</p>
     <div class="axes">
       <div class="axis"><span class="axn">축 1 · 증권</span><b>계좌축</b><p>물리 재고·FIFO·보관. 매매·대체·역병합의 수량 계보를 증권사 계좌 단위로 관리.</p></div>
-      <div class="axis"><span class="axn">축 2 · 납세자</span><b>귀속축</b><p>§17② 취득가액·증여 승계. 소득성격·의제배당 판정의 귀속 기반.</p></div>
+      <div class="axis"><span class="axn">축 2 · 납세자</span><b>귀속축</b><p>§17② 취득가액·취득계보(매매·증여·대체). 소득성격·의제배당 판정의 귀속 기반.</p></div>
       <div class="axis"><span class="axn">축 3 · 과세이력</span><b>신고·납세축</b><p>실제 신고·납세 기록. 경정청구가 근거하는 과세관청의 원장 — 청구 성립의 토대.</p></div>
     </div>
     <p class="dlabel">과세관청의 이중 등장 <span>— 단일 위치가 아니다. 어느 법제에 서느냐에 따라 역할이 바뀐다.</span></p>
     <div class="dual">
       <div class="dcard income">
         <span class="dax">소득·양도 축 · 소득세법</span>
-        <b>과세관청 = 종점 검증자</b>
-        <p>발행사 사실계보를 받아 ROC 의제배당·경정을 검증. 기점이 아니라 종점.</p>
+        <b>과세관청 = 최종 사실판단자</b>
+        <p>발행사 자료·금융기관 처리내역·취득계보를 종합해 국내 세법상 소득성격·과표를 사실판단·결정한다.</p>
       </div>
       <div class="dcross">
         <span class="x">✕</span>권리·자산의 증여 → 새 법제 위계 점화
-        <em>교차점: §17② 취득가액 = 증여일 시가</em>
+        <em>교차 쟁점(미해결): 취득가액 산정기준</em>
       </div>
       <div class="dcard gift">
         <span class="dax">증여 축 · 상속세및증여세법</span>
         <b>과세관청 = 감독자</b>
-        <p>증여 그 자체를 과세·평가 감독. 증여자→수증자 취득가 승계를 확정.</p>
+        <p>증여 그 자체를 과세·평가. 증여자산의 취득가액 산정기준은 별도 세법 검토가 필요한 쟁점.</p>
       </div>
     </div>
-    <p class="sec-sub" style="margin-top:-8px">증여일 시가는 증여세 위계(상증세법 평가)가 확정하고, <b>같은 시가</b>가 증여세 과세표준과 후속 ROC 취득가액에 동시에 흐른다 — 한 위계가 다른 위계를 감독·제약한다. 증여일 시가 vs 이월과세 등 세법 판단은 서비스가 확정하지 않으며, 납세자확인서에서 납세자가 선택한다.</p>
+    <p class="sec-sub" style="margin-top:-8px">증여받은 ETF의 경우 소득세법 제17조 제2항상 ‘해당 ETF를 취득하기 위하여 사용한 금액’을 <b>증여자의 원취득가액·증여일 평가액·별도 승계가액 중 어느 기준으로 산정할지는 재정경제부 576 회신에서 판단되지 않았다</b>. 별도의 세법 검토·사실확인이 필요한 미해결 쟁점이며, 납세자의 확인·선택은 계산 가정의 확정일 뿐 세법상 효력이나 과세관청에 대한 구속력을 발생시키지 않는다.</p>
 
     <div class="msci">
-      <div class="msci-q">과세관청이 이 우선순위에 개입한 것이 금융세제 문제의 시작인가?</div>
-      <p><span class="verdict-line">구조적으로는 그렇다.</span> 자연 질서는 발행사(사실)→금융기관(전달)→납세자(수령·신고)→과세관청(검증)이다. 그러나 현행 금융세제는 과세관청이 발행사 사실계보를 확보하지 않은 채 원천징수·잠정과표를 <b>상단에서 부과</b>한다 — 종점 검증자가 아니라 과세의 <b>기점으로 개입</b>한다. 이 역전으로 소득성격(ROC 등)이 소실된 채 잠정과세가 확정되고, <b>납세자가 그 과세결과를 독립적으로 검증할 수 없다</b>. KSD가 “소득성격 고지 의무가 없고 국가 인프라가 존재하지 않는다”고 자인한 지점이 그 실증이다.</p>
-      <p><b>L2T가 순서를 복원한다.</b> 발행사 사실계보를 재구성하여 과세관청에 <b>종점 검증자</b>로 제시함으로써, 과세관청을 제자리(종점)로 되돌린다. 원장에서 세액까지 — 이것이 이 서비스의 최종 정의다.</p>
+      <div class="msci-q">과세관청의 위치와 구조적 문제</div>
+      <p>과세관청의 과세권 행사 자체가 문제인 것은 아니다. 문제는 발행사 기업행위 자료에 기록된 소득성격·수량조정 내역이 국제예탁·원천징수 및 국내 증권사 개인원장을 거쳐 과세자료까지 <b>연속적으로 연결되지 않은 상태에서, 소득성격이 생략된 잠정값이 과세의 기초자료로 사용</b>될 수 있다는 점이다.</p>
+      <p>이 경우 과세관청은 발행사 원본·개인별 보유수량·식별자 변경·원천징수·신고이력을 동시에 대조할 수 없고, 납세자 역시 자신의 과세결과를 독립적으로 재현하기 어렵다. 핵심 쟁점은 과세관청의 권한이 아니라, <b>원본 사실계보와 개인원장 사이의 추적가능성</b>이 확보되어 있는지 여부다.</p>
+      <p><b>L2T</b>는 발행사 기업행위 원본을 DTC·QI·KSD·증권사 개인원장 및 납세자의 신고·납부 이력과 연결하여, 수량·식별자·소득성격 및 계산결과의 불일치 지점을 식별하고 복수의 계산 시나리오를 재현하는 데이터 분석 서비스다. 최종 사실인정과 세법 적용은 납세자의 신고 및 과세관청의 심사·결정 영역에 속한다.</p>
     </div>
   </section>
 
   <section>
-    <div class="sec-h"><span class="sec-n">結</span><h2>이중 실패 — 국가의 자백</h2></div>
-    <p class="sec-sub">두 건의 KSD 정보공개 회신이 하나의 결론으로 모인다.</p>
+    <div class="sec-h"><span class="sec-n">結</span><h2>권위가 아니라 사실계보의 복원</h2></div>
     <div class="capstone">
-      <div class="cq">국가는 소득성격 정보(ROC)를 <b>단절</b>시킨 채, 그로 인한 투자자 피해의 <b>실체조차 알지 못한다.</b></div>
+      <div class="cq">국내 과세자료가 성립하기 전에, <b>발행사 기업행위 · 분배금 원천 · 식별자 변경 · 수량조정 · 개인별 취득수량·취득가액</b>이 먼저 연결되어야 한다.</div>
+      <p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 16px">재정경제부 금융세제과-576 회신은 외국 상장 ETF 지급액이 이익·잉여금의 분배인지 자본 감소 대가인지에 따라 과세구조가 달라지며, 그 구분이 국내외 제반 규정에 따른 사실판단 사항임을 확인했다. 사실계보가 단절된 상태에서 생성된 원천징수액·잠정과표는 그 자체만으로 최종 소득성격을 증명하지 못한다. L2T는 발행사 원천자료에서 개인별 신고·납부 이력까지의 계보를 재구성하여 소득성격·수량·취득가액 및 세액의 불일치 지점을 식별하고, 복수의 계산기준에 따른 결과를 제시하는 데이터 분석 서비스다. 개별 세법판정은 수행하지 않는다.</p>
       <div class="cpair">
         <div class="ci">
-          <div class="t">원인 · 단절</div>
-          <b>소득성격 정보 미수집·미전파</b>
-          <p>발행사 8937 Box3(ROC)는 공개 데이터이나 국내 단계에서 끊긴다. “소득성격 고지 의무가 없고, 국가 인프라가 존재하지 않는다.” <span class="cite">— KSD 회신 16764618</span></p>
+          <div class="t">확인된 법리 (재경부 576)</div>
+          <b>소득성격 선(先)판단 구조</b>
+          <p>지급액의 명칭·원천징수 결과만으로 배당소득이 확정되지 않는다. 자본 감소 대가라면 취득에 사용한 금액을 초과하는 부분만 의제배당이다.</p>
         </div>
         <div class="ci">
-          <div class="t">결과 · 무지</div>
-          <b>피해 실체·규모 산정 불가</b>
-          <p>예탁참가자(증권사) 단위 관리로 총 투자자 수·계좌 수 데이터가 부존재하다. 피해 인원조차 셀 수 없다. <span class="cite">— KSD 회신 청구5</span></p>
+          <div class="t">여전히 별도 입증 필요</div>
+          <b>미해결 쟁점</b>
+          <p>미국 ROC의 국내법상 자본 감소 대가 해당 여부, 증여 ETF 취득가액 산정기준, 8937·ICI와 개인원장 연결, 누적ROC·잔여취득가액, 국내 세·건보의 실제 순증가액.</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <b>과세계보 권위 위계</b> — 발행사 기업행위(진실) ▷ 국제원장 체인(DTC·QI·1042-S·KSD·증권사 = 전달·단절) ▷ S01 분배원장 ▷ 소득성격·취득원가 ▷ 마스터워크 ▷ 경정. 상위가 하위를 심판하고, 어긋나면 상위로 정정한다.<br>
-    본 도표는 발행사 기업행위를 감시 절대기준으로 하는 정합 관리·대조 자료이며 세무판정 문서가 아니다. 취득가액·평가기준·이월과세 등 세법상 판단은 서비스 제공자가 임의로 확정하지 아니하며, 계산기준과 결과를 제시한 후 납세자 확인·선택에 따라 진행한다. 최종 사실인정과 세법 적용은 과세관청의 판단 영역이며, 신고·서명·제출은 납세자 본인이 수행한다. 본 도표는 권위 위계·구조를 설명하는 자료로, 개별 {납세자×종목} 사례의 금액·정정 판정은 포함하지 않는다.
+    <b>사실계보 · 증거 위계</b> — 발행사 기업행위(최상위 1차 사실자료) ▷ 금융기관(권리배분·전달·원천징수) ▷ S01 분배원장 ▷ 소득성격·취득가액 ▷ 과세관청의 최종 사실판단·세법 적용.<br>
+    본 서비스는 발행사 기업행위 자료, 증권사 개인원장, 취득·증여·대체 내역 및 신고·납부 자료를 대조하여 소득성격과 취득가액별 계산 시나리오를 제공한다. 분배금이 이익·잉여금의 분배인지 자본 감소로 인한 대가인지 여부와 증여자산의 취득가액 산정기준은 국내외 제반 규정과 개별 사실관계에 따른 판단사항이므로 서비스 제공자가 임의로 확정하지 않는다. 납세자의 확인·선택은 데이터 분석에 적용할 계산 가정과 입력기준을 확정하기 위한 절차일 뿐, 해당 선택이 세법상 효력이나 과세관청에 대한 구속력을 발생시키는 것은 아니다. 최종 사실인정과 세법 적용은 납세자의 신고 및 과세관청의 심사·결정에 따른다.
   </footer>
 </div>
 </body>
