@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="과세계보 권위 위계(발행사·금융기관·납세자·과세관청/L2T)와 금융세제 데이터 인프라 공백 — TSLY 2024.1-2 단절 사례·전국 규모·피해 추정·이중 실패. 발행사 8937·KSD 정보공개 회신 근거 구조 자료.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="과세계보 오류 지점 도표 — 발행사 기업행위에서 국내 과표까지">
+<meta property="og:type" content="article">
+<title>과세계보 오류 지점 도표 — 발행사 기업행위에서 국내 과표까지</title>
+<style>
+  :root{
+    --paper:#F4F2EC; --panel:#FBFAF6; --ink:#1B2230; --muted:#5A6172;
+    --line:#DAD5C8; --navy:#1F3864; --navy-soft:#33507F;
+    --gold:#B0842B; --gold-bg:#F6ECCF; --gold-line:#D8BC77;
+    --red:#B23021; --red-bg:#F6E3DF; --red-line:#E0A79C;
+    --teal:#2C7161; --teal-bg:#DEEBE5; --amber:#B5661B; --amber-bg:#F4E4CF;
+    --spine:#C7B98E;
+    --shadow:0 1px 2px rgba(27,34,48,.06),0 8px 24px rgba(27,34,48,.05);
+    --mono:ui-monospace,"Cascadia Code","Consolas","D2Coding",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#12161F; --panel:#1A2030; --ink:#E7E9EE; --muted:#9AA2B4;
+      --line:#2B3446; --navy:#9DB6E4; --navy-soft:#B7C7EA;
+      --gold:#D9B45E; --gold-bg:#2A2415; --gold-line:#5A4C24;
+      --red:#E4897B; --red-bg:#2E1B18; --red-line:#5B302A;
+      --teal:#67B3A0; --teal-bg:#15251F; --amber:#D89454; --amber-bg:#2A2013;
+      --spine:#4A4630;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12161F; --panel:#1A2030; --ink:#E7E9EE; --muted:#9AA2B4;
+    --line:#2B3446; --navy:#9DB6E4; --navy-soft:#B7C7EA;
+    --gold:#D9B45E; --gold-bg:#2A2415; --gold-line:#5A4C24;
+    --red:#E4897B; --red-bg:#2E1B18; --red-line:#5B302A;
+    --teal:#67B3A0; --teal-bg:#15251F; --amber:#D89454; --amber-bg:#2A2013;
+    --spine:#4A4630;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --paper:#F4F2EC; --panel:#FBFAF6; --ink:#1B2230; --muted:#5A6172;
+    --line:#DAD5C8; --navy:#1F3864; --navy-soft:#33507F;
+    --gold:#B0842B; --gold-bg:#F6ECCF; --gold-line:#D8BC77;
+    --red:#B23021; --red-bg:#F6E3DF; --red-line:#E0A79C;
+    --teal:#2C7161; --teal-bg:#DEEBE5; --amber:#B5661B; --amber-bg:#F4E4CF;
+    --spine:#C7B98E;
+    --shadow:0 1px 2px rgba(27,34,48,.06),0 8px 24px rgba(27,34,48,.05);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px) 72px}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ---- header ---- */
+  header{border-bottom:2px solid var(--navy);padding-bottom:26px;margin-bottom:38px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);
+    font-weight:700;margin:0 0 14px}
+  h1{font-size:clamp(26px,4.6vw,40px);line-height:1.15;letter-spacing:-.01em;
+    text-wrap:balance;margin:0 0 16px;font-weight:800}
+  .thesis{font-size:clamp(16px,2.3vw,20px);color:var(--ink);max-width:60ch;margin:0 0 20px;
+    font-weight:500;border-left:3px solid var(--gold);padding-left:16px}
+  .thesis b{color:var(--gold);font-weight:800}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;color:var(--muted)}
+  .meta span{display:inline-flex;gap:7px;align-items:center}
+  .meta b{color:var(--ink);font-weight:600}
+
+  section{margin-top:46px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+  .sec-n{font-family:var(--mono);font-size:13px;color:var(--navy);font-weight:700}
+  h2{font-size:clamp(18px,2.6vw,23px);margin:0;font-weight:750;letter-spacing:-.01em}
+  .sec-sub{color:var(--muted);font-size:13.5px;margin:2px 0 22px;max-width:70ch}
+
+  /* ---- authority ladder ---- */
+  .ladder{position:relative}
+  .rung{position:relative;display:grid;grid-template-columns:190px 1fr 176px;gap:0;
+    align-items:stretch;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;box-shadow:var(--shadow);margin:0 0 12px;overflow:hidden}
+  .rung.apex{grid-template-columns:1fr;background:var(--gold-bg);border-color:var(--gold-line);
+    margin-bottom:22px}
+  .rung.brk{border-left:4px solid var(--red)}
+  .r-lay{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;
+    justify-content:center;gap:3px}
+  .r-lay .lname{font-weight:750;font-size:14.5px}
+  .r-lay .lrole{font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+  .r-carry{padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;
+    justify-content:center;gap:4px;font-size:13px}
+  .r-carry .lab{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .r-stat{padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:5px}
+  .r-stat .verdict{font-size:12px;color:var(--red);font-weight:700;line-height:1.35}
+  .apex-inner{padding:22px 26px}
+  .apex-crown{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+    font-weight:800;margin-bottom:8px}
+  .apex-inner h3{margin:0 0 10px;font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--ink)}
+  .apex-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .fact{font-size:12px;background:var(--panel);border:1px solid var(--gold-line);
+    border-radius:999px;padding:5px 12px;font-weight:600}
+  .fact b{color:var(--gold)}
+
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:750;
+    padding:3px 9px;border-radius:6px;letter-spacing:.02em;white-space:nowrap;width:fit-content}
+  .b-break{background:var(--red-bg);color:var(--red);border:1px solid var(--red-line)}
+  .b-ok{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal)}
+  .b-flow{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+  .chain-note{display:flex;gap:9px;align-items:flex-start;margin:16px 2px 0;
+    font-size:12.5px;color:var(--muted)}
+  .chain-note .dot{color:var(--red);font-weight:800;flex:none}
+
+  /* ---- error table ---- */
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:760px;background:var(--panel);font-size:13px}
+  thead th{background:var(--navy);color:#fff;text-align:left;padding:11px 14px;font-weight:700;
+    font-size:11.5px;letter-spacing:.04em;white-space:nowrap}
+  tbody td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr:hover td{background:color-mix(in srgb,var(--navy) 5%,transparent)}
+  .tk{font-weight:750;font-size:13.5px}
+  .who{font-size:11px;color:var(--muted);font-family:var(--mono)}
+  .amt{font-family:var(--mono);font-weight:600;text-align:right;white-space:nowrap}
+  .cell-issuer b{color:var(--gold)}
+  .v{font-weight:700;font-size:11.5px;white-space:nowrap}
+  .v.fix{color:var(--red)} .v.ok{color:var(--teal)} .v.unv{color:var(--amber)}
+  .v .tag{display:block;font-weight:500;color:var(--muted);font-size:10.5px;margin-top:1px}
+
+  /* ---- evidence quote ---- */
+  .evidence{background:var(--navy);color:#EDEFF4;border-radius:14px;padding:clamp(22px,3.5vw,34px);
+    box-shadow:var(--shadow);position:relative;overflow:hidden}
+  :root[data-theme="dark"] .evidence,
+  @media (prefers-color-scheme:dark){}
+  .evidence .src{font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:#B9C6E4;font-weight:700;margin-bottom:16px}
+  .evidence blockquote{margin:0;font-size:clamp(15px,2.2vw,18px);line-height:1.7;font-weight:500}
+  .evidence blockquote b{color:#F0D48A;font-weight:750}
+  .evidence .attr{margin-top:18px;font-size:12.5px;color:#AEBBD6;border-top:1px solid #33507F;
+    padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .evidence .attr b{color:#fff}
+
+  /* ---- priority chain ---- */
+  .priority{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:22px 0 10px}
+  .pnode{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:11px 16px;display:flex;flex-direction:column;gap:2px;min-width:118px;flex:1}
+  .pnode b{font-size:14.5px;font-weight:750}
+  .pnode small{font-size:11px;color:var(--muted);letter-spacing:.02em}
+  .pnode.apex-node{background:var(--gold-bg);border-color:var(--gold-line)}
+  .pnode.apex-node b{color:var(--gold)}
+  .pnode.verifier{background:var(--navy);border-color:var(--navy)}
+  .pnode.verifier b{color:#fff} .pnode.verifier small{color:#B9C6E4}
+  .parrow{align-self:center;color:var(--muted);font-size:16px;font-weight:700;flex:none}
+  .pcaption{font-size:12.5px;color:var(--muted);margin:0 2px 4px}
+  .pcaption b{color:var(--ink);font-weight:700}
+  .l2t{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;
+    color:var(--navy);border:1px solid var(--navy);border-radius:6px;padding:2px 8px;margin-left:6px;letter-spacing:.06em}
+
+  /* ---- 3 axes ---- */
+  .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:4px 0 22px}
+  .axis{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow);border-top:3px solid var(--navy-soft)}
+  .axis .axn{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.08em}
+  .axis b{display:block;font-size:15px;font-weight:750;margin:3px 0 6px}
+  .axis p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  @media (max-width:640px){.axes{grid-template-columns:1fr}}
+  .msci{background:var(--gold-bg);border:1px solid var(--gold-line);border-radius:12px;
+    padding:20px 22px;box-shadow:var(--shadow)}
+  .msci-q{font-size:15.5px;font-weight:750;color:var(--ink);margin-bottom:12px;line-height:1.4}
+  .msci-q::before{content:"Q  ";font-family:var(--mono);color:var(--gold);font-weight:800}
+  .msci p{margin:0 0 10px;font-size:13.5px;line-height:1.68}
+  .msci p:last-child{margin-bottom:0}
+  .msci .verdict-line{font-weight:700;color:var(--gold)}
+  .msci .honest{font-size:12.5px;color:var(--muted);border-left:3px solid var(--amber);padding-left:12px}
+
+  /* ---- dual role ---- */
+  .dlabel{font-size:13px;font-weight:700;color:var(--ink);margin:2px 2px 10px}
+  .dlabel span{color:var(--muted);font-weight:500}
+  .dual{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin:0 0 22px}
+  .dcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .dcard.income{border-top:3px solid var(--navy-soft)}
+  .dcard.gift{border-top:3px solid var(--amber)}
+  .dcard .dax{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+  .dcard b{display:block;font-size:15px;margin:4px 0 6px}
+  .dcard.income b{color:var(--navy)} .dcard.gift b{color:var(--amber)}
+  .dcard p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .dcross{align-self:center;text-align:center;font-size:11.5px;color:var(--muted);
+    font-weight:650;padding:0 4px;max-width:158px;line-height:1.5}
+  .dcross .x{display:block;font-size:18px;color:var(--gold);margin-bottom:4px}
+  .dcross em{display:block;margin-top:7px;font-family:var(--mono);font-size:10.5px;
+    color:var(--gold);font-weight:700;font-style:normal}
+  @media (max-width:640px){.dual{grid-template-columns:1fr}.dcross{max-width:none;padding:6px 0}}
+
+  /* ---- TSLY case lineage flow ---- */
+  .tflow{margin:6px 0 10px}
+  .tstep{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;position:relative;padding-bottom:14px}
+  .tstep::before{content:"";position:absolute;left:17px;top:36px;bottom:-4px;width:2px;background:var(--line)}
+  .tstep:last-child::before{display:none}
+  .tnum{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--mono);font-size:14px;z-index:1;flex:none}
+  .tstep.issuer .tnum{background:var(--gold)}
+  .tstep.result .tnum{background:var(--red)}
+  .tstep.recover .tnum{background:var(--teal)}
+  .tcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .tstep.result .tcard{border-left:3px solid var(--red)}
+  .tsrc{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.04em;
+    padding:3px 9px;border-radius:6px;margin-bottom:8px}
+  .s-issuer{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-line)}
+  .s-ksd{background:color-mix(in srgb,var(--navy) 12%,transparent);color:var(--navy);border:1px solid var(--navy-soft)}
+  .s-tp{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber)}
+  .s-dom{background:var(--red-bg);color:var(--red);border:1px solid var(--red-line)}
+  .tcard b.th{display:block;font-size:14.5px;margin-bottom:6px}
+  .tcard p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.58}
+  .tcard .fig{font-family:var(--mono);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .roc2{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .roc2 .rc{flex:1;min-width:130px;background:var(--gold-bg);border:1px solid var(--gold-line);
+    border-radius:8px;padding:8px 11px;font-size:12px}
+  .roc2 .rc b{font-family:var(--mono);color:var(--gold)}
+  .trec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  .trec .tk2{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .trec .tk2 .lab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:750}
+  .trec .tk2 b{display:block;font-size:13px;margin:3px 0 4px}
+  .trec .tk2 p{font-size:11.5px}
+  @media (max-width:640px){.trec{grid-template-columns:1fr}}
+  .amt.zero{color:var(--teal);font-weight:700}
+  .amt.prov{color:var(--amber);font-weight:600}
+  .casc-note{font-size:11.5px;color:var(--muted);margin:9px 2px 0;line-height:1.55}
+  .natl{background:var(--navy);color:#EDEFF4;border-radius:12px;padding:18px 22px;box-shadow:var(--shadow);margin-top:16px}
+  .natl .nsrc{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#B9C6E4;font-weight:750;margin-bottom:10px}
+  .natl .nbig{font-family:var(--mono);font-size:clamp(23px,5.2vw,34px);font-weight:800;color:#F0D48A;font-variant-numeric:tabular-nums;line-height:1.08}
+  .natl .ncap{font-size:12.5px;color:#CBD6EC;margin-top:5px;line-height:1.5}
+  .natl .nrow{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;border-top:1px solid #33507F;padding-top:12px;font-size:12.5px;color:#CBD6EC}
+  .natl .nrow b{color:#fff;font-variant-numeric:tabular-nums}
+  .natl .warn{color:#F2B39C;font-weight:650}
+  tbody tr.sum td{border-top:2px solid var(--navy);background:color-mix(in srgb,var(--navy) 7%,transparent);font-size:13.5px}
+  .estim{background:var(--gold-bg);border:1px solid var(--gold-line);border-radius:10px;
+    padding:14px 18px;margin-top:12px;font-size:16px;font-weight:750;color:var(--ink)}
+  .estim b{font-family:var(--mono);color:var(--gold);font-size:21px;font-variant-numeric:tabular-nums}
+  .estim span{display:block;font-size:11.5px;font-weight:500;color:var(--muted);margin-top:3px}
+  .tclose{display:flex;gap:9px;align-items:flex-start;margin:8px 2px 0;font-size:12px;color:var(--muted)}
+  .tclose .i{color:var(--navy);font-weight:800;flex:none}
+
+  /* ---- capstone (이중 실패) ---- */
+  .capstone{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);
+    border-radius:12px;padding:22px 24px;box-shadow:var(--shadow)}
+  .capstone .cq{font-size:clamp(17px,2.7vw,23px);font-weight:800;line-height:1.4;color:var(--ink);
+    text-wrap:balance;margin-bottom:18px}
+  .capstone .cq b{color:var(--red)}
+  .cpair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cpair .ci{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+  .cpair .ci .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:750;color:var(--red);margin-bottom:5px}
+  .cpair .ci b{display:block;font-size:13.5px;margin-bottom:5px;color:var(--ink)}
+  .cpair .ci p{margin:0;font-size:12px;color:var(--muted);line-height:1.55}
+  .cpair .ci .cite{color:var(--navy);font-weight:650}
+  @media (max-width:640px){.cpair{grid-template-columns:1fr}}
+
+  /* ---- legend + footer ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px;font-size:12px;color:var(--muted)}
+  .legend .k{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:13px;height:13px;border-radius:3px;flex:none;border:1px solid transparent}
+  .sw.g{background:var(--gold-bg);border-color:var(--gold-line)}
+  .sw.r{background:var(--red-bg);border-color:var(--red-line)}
+  .sw.t{background:var(--teal-bg);border-color:var(--teal)}
+  .sw.a{background:var(--amber-bg);border-color:var(--amber)}
+  footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink)}
+  @media (max-width:640px){
+    .rung{grid-template-columns:1fr}
+    .r-lay,.r-carry{border-right:none;border-bottom:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">과세계보 권위 위계 · 오류 지점 도표</p>
+    <h1>발행사 기업행위에서 국내 과표까지 —<br>진실은 어디서 어긋나는가</h1>
+    <p class="thesis">위계는 아래에서 올라오지 않는다. <b>기업행위, 사실, 그 자체</b>에서 내려온다. 발행사가 확정한 소득성격·주식수·식별자가 유일한 진실이며, 그 아래 국제원장 전 체인이 이를 놓친다.</p>
+    <div class="priority">
+      <span class="pnode apex-node"><b>발행사</b><small>사실 창조</small></span>
+      <span class="parrow">▸</span>
+      <span class="pnode"><b>금융기관</b><small>전달·집행</small></span>
+      <span class="parrow">▸</span>
+      <span class="pnode"><b>납세자</b><small>수령·신고</small></span>
+      <span class="parrow">▸</span>
+      <span class="pnode verifier"><b>과세관청</b><small>종점 검증</small></span>
+    </div>
+    <p class="pcaption">우선순위의 자연 질서 — <b>과세관청은 사실의 기점이 아니라 종점 검증자</b>다.<span class="l2t">원장에서 세액까지 · L2T</span></p>
+    <div class="meta">
+      <span>자료출처 <b>발행사 8937·ICI Primary / KSD 정보공개 회신</b></span>
+      <span>범위 <b>과세계보 권위 위계·구조 (개별 사례 판정 제외)</b></span>
+      <span>성격 <b>구조 설명 자료 · 세무판정 아님</b></span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-h"><span class="sec-n">Ⅰ</span><h2>권위 위계 — 진실의 하강과 단절</h2></div>
+    <p class="sec-sub">최상위 진실(발행사 기업행위)이 국제원장 체인을 따라 내려오며, 각 단계가 원본을 수집하지 못하고 단절된다. 종점 국내 과표에는 소득성격이 사라진 잠정치만 도달한다.</p>
+
+    <div class="ladder">
+      <div class="rung apex">
+        <div class="apex-inner">
+          <div class="apex-crown">◆ 최상위 · 진실 그 자체 · 창조자</div>
+          <h3>발행사 기업행위</h3>
+          <div class="apex-facts">
+            <span class="fact"><b>소득성격</b> 8937·ICI Box3 (배당/ROC/자본이득/STCG)</span>
+            <span class="fact"><b>주식수</b> 분할·역병합 (질량보존)</span>
+            <span class="fact"><b>식별자</b> CUSIP/ISIN 변경 §6045B</span>
+            <span class="fact"><b>정정</b> 8937 Corrected</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rung brk">
+        <div class="r-lay"><span class="lname">② DTC</span><span class="lrole">예탁·권리배분 (도관)</span></div>
+        <div class="r-carry"><span class="lab">전달해야 할 것</span><span>발행사 Box3 소득성격 · 기업행위 원본</span></div>
+        <div class="r-stat"><span class="badge b-flow">정보 축약</span><span class="verdict">도관 단계에서 성격 정보 희석</span></div>
+      </div>
+
+      <div class="rung brk">
+        <div class="r-lay"><span class="lname">③ QI Pool · 1042-S</span><span class="lrole">집계신고 (Pool)</span></div>
+        <div class="r-carry"><span class="lab">전달해야 할 것</span><span>개인별 소득성격·확정세액</span></div>
+        <div class="r-stat"><span class="badge b-break">✗ 단절</span><span class="verdict">개인 원장 부존재 — 집계만 신고</span></div>
+      </div>
+
+      <div class="rung brk">
+        <div class="r-lay"><span class="lname">④ KSD</span><span class="lrole">현지 재분류 중계</span></div>
+        <div class="r-carry"><span class="lab">전달해야 할 것</span><span>Box1·Box3·ROC·STCG·LTCG 원본</span></div>
+        <div class="r-stat"><span class="badge b-break">✗ 단절</span><span class="verdict">원본 미수집 · 국내 과표 미관여</span></div>
+      </div>
+
+      <div class="rung brk">
+        <div class="r-lay"><span class="lname">⑤ 증권사 개인원장</span><span class="lrole">S01 분배 · 원천징수</span></div>
+        <div class="r-carry"><span class="lab">전달해야 할 것</span><span>종목별 ROC 성격 · 정확한 취득수량</span></div>
+        <div class="r-stat"><span class="badge b-break">✗ 단절</span><span class="verdict">Box3 성격·역병합·취득LOT 누락</span></div>
+      </div>
+
+      <div class="rung brk">
+        <div class="r-lay"><span class="lname">⑥ 국내 과표 · 경정</span><span class="lrole">종소세 · 양도세</span></div>
+        <div class="r-carry"><span class="lab">도달하는 것</span><span>잠정과표 · 잠정세액 · 최종세액뿐</span></div>
+        <div class="r-stat"><span class="badge b-break">✗ 소실</span><span class="verdict">소득성격·국외환급세액 사라짐 → 경정으로 사후복원</span></div>
+      </div>
+    </div>
+
+    <div class="chain-note"><span class="dot">✗</span><span>③~⑥ 네 단계가 발행사 원본과 단절. 진실(발행사 Box3)은 존재하나 국내 종점에 도달하지 못한다 — 이것이 「권위–집행 괴리」다. 개인원장(⑤)은 이 단절의 종점이며, 발행사 기업행위를 독립적으로 재현·검증할 구조가 없다.</span></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><span class="sec-n">Ⅱ</span><h2>단절 사례 계보 — TSLY 2024년 1·2월</h2></div>
+    <p class="sec-sub">위 위계가 실제로 어긋난 한 흐름을 단계별 출처와 함께 따라간다. 모든 사실은 발행사·국가기관 문서와 납세자 본인의 청구서에서 오며, 서비스의 판정이 아니다. (익명 사례 · 계좌 비표시)</p>
+    <div class="tflow">
+      <div class="tstep issuer">
+        <div class="tnum">1</div>
+        <div class="tcard">
+          <span class="tsrc s-issuer">발행사 · IRS Form 8937</span>
+          <b class="th">소득성격 확정 — 전액 자본반환(ROC 100%)</b>
+          <p>YieldMax가 IRS에 제출한 2024 귀속 8937(Date of Action 2024-10-31, CUSIP 88636J444): TSLY 1·2월 분배는 100% ROC.</p>
+          <div class="roc2">
+            <span class="rc">2024년 1월 <b>$0.55650/주 · ROC 100%</b></span>
+            <span class="rc">2024년 2월 <b>$0.40460/주 · ROC 100%</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="tstep issuer">
+        <div class="tnum">2</div>
+        <div class="tcard">
+          <span class="tsrc s-issuer">발행사 · 기업행위(역병합)</span>
+          <b class="th">역병합 2:1 · ISIN 변경</b>
+          <p>구주 2주 → 신주 1주, 기준일 <span class="fig">2024-02-26</span>. 구 ISIN <span class="fig">US88634T7090</span> → 신 <span class="fig">US88636J4444</span>. <b>1·2월 분배는 역병합 전 구 ISIN 하에서 수령</b>됐다.</p>
+        </div>
+      </div>
+      <div class="tstep">
+        <div class="tnum">3</div>
+        <div class="tcard">
+          <span class="tsrc s-ksd">국가기관 · KSD 정보공개 16848276</span>
+          <b class="th">국제원장 단절 — 구 ISIN 재분류 부존재</b>
+          <p>소득재분류는 신 ISIN에 대해서만 처리되고, <b>구 ISIN 재분류 리포트는 부존재</b>다. 원인은 미국 보관기관(Citi)의 연간 처리 마감 이후라는 점 — 예탁결제원이 정보공개 회신으로 공식 확인했다.</p>
+        </div>
+      </div>
+      <div class="tstep result">
+        <div class="tnum">4</div>
+        <div class="tcard">
+          <span class="tsrc s-dom">국내 종점 · 증권사 원천징수</span>
+          <b class="th">배당으로 과세 — 소득성격(ROC) 미반영</b>
+          <p>구 ISIN 하 1·2월 분배가 <b>배당소득으로 15% 원천징수</b>됐다. 발행사가 확정한 ROC 100%가 국내 과표에 도달하지 못했다 — 위계 역전의 종점.</p>
+        </div>
+      </div>
+      <div class="tstep recover">
+        <div class="tnum">5</div>
+        <div class="tcard">
+          <span class="tsrc s-tp">납세자 · 5기관 정정 청구서</span>
+          <b class="th">회복 2트랙 (납세자 본인 수행)</b>
+          <div class="trec">
+            <div class="tk2">
+              <span class="lab">① 미국 측</span>
+              <b>QI Post-cycle Correction</b>
+              <p>삼성증권(QI)→Citi 사후 소득재분류→원천세 환급. 청구서 기재 환급대상 <span class="fig">$1,308.56</span>(8937 ROC×15%).</p>
+            </div>
+            <div class="tk2">
+              <span class="lab">② 국내 측</span>
+              <b>국세청 경정청구</b>
+              <p>§45의2·§17②·예규 576. ROC는 취득가 초과분만 의제배당 → 취득가 ≥ 누적ROC이면 전액 비과세.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dlabel" style="margin-top:20px">사태의 경과 <span>— 자본반환(본래 비과세)이 다층 과세로 누적</span></p>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>단계</th><th>과세 층위</th><th>근거 · 성격</th><th style="text-align:right">실제 부과</th><th style="text-align:right">정상(ROC 비과세)</th><th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tk">기준</td><td>국내 ROC 총액</td><td>자본반환 · 본래 비과세 (8937 Box3 100%)</td>
+            <td class="amt">$8,723.74</td><td class="amt">—</td><td><span class="v ok">발행사 확정</span></td>
+          </tr>
+          <tr>
+            <td class="tk">1</td><td>미국 원천세 15%</td><td>ROC × 15% 원천징수</td>
+            <td class="amt">$1,308.56</td><td class="amt zero">$0</td><td><span class="v ok">청구서 확정</span></td>
+          </tr>
+          <tr>
+            <td class="tk">2</td><td>국내 원천징수 14%</td><td>배당 과세 · 외국납부세액공제와 상계</td>
+            <td class="amt prov">잠정(상계)</td><td class="amt zero">$0</td><td><span class="v unv">상계구조·잠정</span></td>
+          </tr>
+          <tr>
+            <td class="tk">3</td><td>종소세 누진</td><td>금융소득 종합과세(비교과세) 해당 시</td>
+            <td class="amt prov">납세자별</td><td class="amt zero">$0</td><td><span class="v unv">잠정·미확정</span></td>
+          </tr>
+          <tr>
+            <td class="tk">4</td><td>건보료 추징</td><td>소득 증가분 반영</td>
+            <td class="amt prov">납세자별</td><td class="amt zero">$0</td><td><span class="v unv">잠정·미확정</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="casc-note">본래 세부담 0(자본반환)이 원천징수 → 종합과세 → 건보로 누적되는 것이 사태의 본질이다. 국내 ROC 총액의 KRW 환산은 원천징수일 환율 적용(별도), 2~4단계 금액은 납세자 종합소득·건보 자료 확보 후 확정된다. 미국 15%($1,308.56)만 청구서로 문서 확정되었고, 나머지 층위는 구조로만 표기한다.</p>
+
+    <div class="natl">
+      <div class="nsrc">전국 규모 · KSD 정보공개 청구5 회신</div>
+      <div class="nbig">USD 15,995,511.58</div>
+      <div class="ncap">TSLY 구 ISIN(US88634T7090) 2024년 1·2월 분배(Gross) 총액 — 전국 전 투자자 합산. 위 익명 1인 사례($8,723.74)는 이 국가 규모 자본반환 풀의 일부다.</div>
+      <div class="nrow">
+        <span>소득성격 <b>ROC 100% (8937) → 전액 자본반환</b></span>
+        <span>미국 원천세 15% <b>≈ $2,399,326.74</b></span>
+        <span>정상(비과세) <b>$0</b></span>
+      </div>
+      <div class="nrow"><span class="warn">⚠ KSD 자백 — 투자자·계좌 수 데이터 부존재(예탁참가자·증권사 단위 관리). 국가가 피해 인원·규모를 산정할 수 없다.</span></div>
+    </div>
+
+    <p class="dlabel" style="margin-top:20px">피해 규모 추정 <span>— 제시된 가정(중간값 세율·환율 ₩1,500)에 따른 시나리오 산술</span></p>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>피해 층위</th><th style="text-align:right">가정 세율</th><th style="text-align:right">산출액 (원)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>기준 — 국내 ROC 총액 <span class="who">USD 15,995,511.58 × ₩1,500</span></td><td class="amt">—</td><td class="amt">23,993,267,370</td></tr>
+          <tr><td>ROC 미환급 (국내 배당 원천)</td><td class="amt">14%</td><td class="amt">3,359,057,432</td></tr>
+          <tr><td>지방세 미환급 (지방소득세)</td><td class="amt">1.4%</td><td class="amt">335,905,743</td></tr>
+          <tr><td>종소세 누진 (중간값)</td><td class="amt">14%</td><td class="amt">3,359,057,432</td></tr>
+          <tr><td>건보료 추징 (중간값)</td><td class="amt">6%</td><td class="amt">1,439,596,042</td></tr>
+          <tr class="sum"><td><b>국내 피해 합계</b></td><td class="amt"><b>35.4%</b></td><td class="amt"><b>8,493,616,649</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="estim">추정 국내 피해 규모 ≈ <b>85억 원</b><span>가정 시나리오 · TSLY 구 ISIN 2024년 1·2월 전국 분배(Gross USD 15,995,511.58) 기준</span></div>
+    <p class="casc-note">가정 명시: 종소세 누진·건보료는 납세자별로 상이하여 <b>중간값</b>을 적용한 추정이며 확정액이 아니다. 개인별 실제 데이터는 부존재(KSD)하므로 이는 규모 추정치다. 미국 원천세 15%(≈ $2,399,326.74 = ₩3,598,990,110)는 별도 환급 트랙으로 위 합계에 미포함. 계산기준(세율·환율)은 의뢰인이 제시했고, 최종 세액·비과세 인정은 과세관청의 판단 영역이다.</p>
+    <div class="tclose"><span class="i">ⓘ</span><span>환급 실행(QI)·비과세 인정(과세관청)의 최종 판단은 각 기관의 몫이다. 본 계보·경과는 납세자가 발행사·국가기관 문서로 구성한 청구 근거를 위계 구조로 제시할 뿐, 세액의 당부를 확정하지 않는다.</span></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><span class="sec-n">Ⅲ</span><h2>국가기관 공식 확인</h2></div>
+    <p class="sec-sub">위 단절이 개인의 주장이 아님을 국가기관이 문서로 확인한다. 5기관 정보공개 청구에 대한 KSD 회신.</p>
+    <div class="evidence">
+      <div class="src">한국예탁결제원 정보공개 결정통지서 · 접수 16764618</div>
+      <blockquote>“소득성격 데이터는 <b>존재한다</b> — 미국 ICI가 매년 BOX1·STCG·<b>BOX3(ROC)</b>로 구분하여 공시하는 <b>공개 데이터</b>다. 예탁결제원은 이를 <b>원본으로 수집하지 않고</b>, DTC 참가자(글로벌커스터디언)가 처리한 내역을 전달받는다. … 소득성격 정보는 <b>국내 단계에서 단절</b>되고, 투자자에게 도달하는 것은 잠정과표·잠정세액·최종세액뿐이다. 최종과표·소득성격·국외환급세액은 어디론가 사라진다. … 소득성격을 고지하는 <b>의무가 없고, 국가 인프라가 존재하지 않는다.</b>”</blockquote>
+      <div class="attr">
+        <span>청구 취지 <b>세액 다툼 아님 · 투자자 독립검증 가능성 확인 · 공익</b></span>
+        <span>5기관 <b>금감원 · 금융위 · 재경부 · KSD · 국세청</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><span class="sec-n">Ⅳ</span><h2>과세계보 3축 · 과세관청의 위치</h2></div>
+    <p class="sec-sub">과세 이력(신고·납세)에 근거한 청구는 세 축이 정합할 때 성립한다. 그리고 이 3축 위에서 과세관청의 자리가 곧 우선순위 문제의 핵심이다.</p>
+    <div class="axes">
+      <div class="axis"><span class="axn">축 1 · 증권</span><b>계좌축</b><p>물리 재고·FIFO·보관. 매매·대체·역병합의 수량 계보를 증권사 계좌 단위로 관리.</p></div>
+      <div class="axis"><span class="axn">축 2 · 납세자</span><b>귀속축</b><p>§17② 취득가액·증여 승계. 소득성격·의제배당 판정의 귀속 기반.</p></div>
+      <div class="axis"><span class="axn">축 3 · 과세이력</span><b>신고·납세축</b><p>실제 신고·납세 기록. 경정청구가 근거하는 과세관청의 원장 — 청구 성립의 토대.</p></div>
+    </div>
+    <p class="dlabel">과세관청의 이중 등장 <span>— 단일 위치가 아니다. 어느 법제에 서느냐에 따라 역할이 바뀐다.</span></p>
+    <div class="dual">
+      <div class="dcard income">
+        <span class="dax">소득·양도 축 · 소득세법</span>
+        <b>과세관청 = 종점 검증자</b>
+        <p>발행사 사실계보를 받아 ROC 의제배당·경정을 검증. 기점이 아니라 종점.</p>
+      </div>
+      <div class="dcross">
+        <span class="x">✕</span>권리·자산의 증여 → 새 법제 위계 점화
+        <em>교차점: §17② 취득가액 = 증여일 시가</em>
+      </div>
+      <div class="dcard gift">
+        <span class="dax">증여 축 · 상속세및증여세법</span>
+        <b>과세관청 = 감독자</b>
+        <p>증여 그 자체를 과세·평가 감독. 증여자→수증자 취득가 승계를 확정.</p>
+      </div>
+    </div>
+    <p class="sec-sub" style="margin-top:-8px">증여일 시가는 증여세 위계(상증세법 평가)가 확정하고, <b>같은 시가</b>가 증여세 과세표준과 후속 ROC 취득가액에 동시에 흐른다 — 한 위계가 다른 위계를 감독·제약한다. 증여일 시가 vs 이월과세 등 세법 판단은 서비스가 확정하지 않으며, 납세자확인서에서 납세자가 선택한다.</p>
+
+    <div class="msci">
+      <div class="msci-q">과세관청이 이 우선순위에 개입한 것이 금융세제 문제의 시작인가?</div>
+      <p><span class="verdict-line">구조적으로는 그렇다.</span> 자연 질서는 발행사(사실)→금융기관(전달)→납세자(수령·신고)→과세관청(검증)이다. 그러나 현행 금융세제는 과세관청이 발행사 사실계보를 확보하지 않은 채 원천징수·잠정과표를 <b>상단에서 부과</b>한다 — 종점 검증자가 아니라 과세의 <b>기점으로 개입</b>한다. 이 역전으로 소득성격(ROC 등)이 소실된 채 잠정과세가 확정되고, <b>납세자가 그 과세결과를 독립적으로 검증할 수 없다</b>. KSD가 “소득성격 고지 의무가 없고 국가 인프라가 존재하지 않는다”고 자인한 지점이 그 실증이다.</p>
+      <p><b>L2T가 순서를 복원한다.</b> 발행사 사실계보를 재구성하여 과세관청에 <b>종점 검증자</b>로 제시함으로써, 과세관청을 제자리(종점)로 되돌린다. 원장에서 세액까지 — 이것이 이 서비스의 최종 정의다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><span class="sec-n">結</span><h2>이중 실패 — 국가의 자백</h2></div>
+    <p class="sec-sub">두 건의 KSD 정보공개 회신이 하나의 결론으로 모인다.</p>
+    <div class="capstone">
+      <div class="cq">국가는 소득성격 정보(ROC)를 <b>단절</b>시킨 채, 그로 인한 투자자 피해의 <b>실체조차 알지 못한다.</b></div>
+      <div class="cpair">
+        <div class="ci">
+          <div class="t">원인 · 단절</div>
+          <b>소득성격 정보 미수집·미전파</b>
+          <p>발행사 8937 Box3(ROC)는 공개 데이터이나 국내 단계에서 끊긴다. “소득성격 고지 의무가 없고, 국가 인프라가 존재하지 않는다.” <span class="cite">— KSD 회신 16764618</span></p>
+        </div>
+        <div class="ci">
+          <div class="t">결과 · 무지</div>
+          <b>피해 실체·규모 산정 불가</b>
+          <p>예탁참가자(증권사) 단위 관리로 총 투자자 수·계좌 수 데이터가 부존재하다. 피해 인원조차 셀 수 없다. <span class="cite">— KSD 회신 청구5</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <b>과세계보 권위 위계</b> — 발행사 기업행위(진실) ▷ 국제원장 체인(DTC·QI·1042-S·KSD·증권사 = 전달·단절) ▷ S01 분배원장 ▷ 소득성격·취득원가 ▷ 마스터워크 ▷ 경정. 상위가 하위를 심판하고, 어긋나면 상위로 정정한다.<br>
+    본 도표는 발행사 기업행위를 감시 절대기준으로 하는 정합 관리·대조 자료이며 세무판정 문서가 아니다. 취득가액·평가기준·이월과세 등 세법상 판단은 서비스 제공자가 임의로 확정하지 아니하며, 계산기준과 결과를 제시한 후 납세자 확인·선택에 따라 진행한다. 최종 사실인정과 세법 적용은 과세관청의 판단 영역이며, 신고·서명·제출은 납세자 본인이 수행한다. 본 도표는 권위 위계·구조를 설명하는 자료로, 개별 {납세자×종목} 사례의 금액·정정 판정은 포함하지 않는다.
+  </footer>
+</div>
+</body>
+</html>
