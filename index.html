@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>한국 자본시장 데이터 인프라 분석 — MSCI 편입 &amp; 금융세제</title>
-<meta name="description" content="MSCI 선진국 편입 낙제와 금융세제 데이터 인프라 미비의 구조적 동형성 분석 및 표준화 로드맵">
+<meta name="description" content="MSCI 선진국 편입 낙제와 금융세제 데이터 인프라 미비의 구조적 동형성 분석·표준화 로드맵, 그리고 소득성격 단절을 실증하는 과세계보 도표">
 <style>
   :root{ --navy:#142A4A; --accent:#1F4E79; --gold:#8A3F12; --grey:#555; --line:#e2e2e2; --bg:#f6f8fb; }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -32,6 +32,21 @@
   .card h3{ color:var(--navy); font-size:17px; margin-bottom:8px; }
   .card p{ font-size:13.5px; color:#444; }
   .card .go{ margin-top:12px; font-size:13px; font-weight:bold; color:var(--accent); }
+  /* 핵심 실증 — 전면 배치 */
+  .feature{ display:block; text-decoration:none; color:#fff; background:linear-gradient(135deg,#142A4A,#24507f);
+            border-radius:12px; padding:26px 28px; margin:22px 0 6px; transition:.15s;
+            box-shadow:0 4px 16px rgba(20,42,74,.18); }
+  .feature:hover{ transform:translateY(-3px); box-shadow:0 10px 28px rgba(20,42,74,.30); }
+  .feature .tag{ display:inline-block; font-size:11px; font-weight:bold; color:#142A4A; background:#ffd9b8;
+                 border-radius:4px; padding:4px 11px; margin-bottom:12px; letter-spacing:.03em; }
+  .feature h3{ font-size:22px; margin-bottom:10px; letter-spacing:-.3px; line-height:1.35; }
+  .feature p{ font-size:14px; opacity:.95; line-height:1.62; }
+  .feature p b{ color:#ffd9b8; }
+  .feature .stats{ display:flex; flex-wrap:wrap; gap:8px 9px; margin:15px 0 2px; }
+  .feature .stat{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.24);
+                  border-radius:20px; padding:5px 13px; font-size:12.5px; font-weight:bold; }
+  .feature .go{ margin-top:15px; font-size:14px; font-weight:bold; color:#ffd9b8; }
+  @media(max-width:680px){ .feature h3{ font-size:19px; } }
   ul.points{ background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px 20px 16px 38px;
              box-shadow:0 1px 4px rgba(0,0,0,.04); }
   ul.points li{ margin:7px 0; font-size:14px; }
@@ -45,7 +60,7 @@
   <div class="wrap">
     <h1>한국 자본시장 데이터 인프라 분석</h1>
     <div class="sub">MSCI 선진국 편입 &amp; 금융세제 — 두 ‘낙제’의 구조적 동형성</div>
-    <div class="meta">데이터 분석 · 정책 설계 · 표준화 로드맵 &nbsp;|&nbsp; 2026-06</div>
+    <div class="meta">데이터 분석 · 정책 설계 · 표준화 로드맵 &nbsp;|&nbsp; 2026-06 · 실증 도표 2026-07 추가</div>
   </div>
 </header>
 
@@ -55,7 +70,24 @@
   “데이터는 이미 있는데 연결표준이 없다”는 동일한 병리다. 둘 다 신규입법보다 ‘표준화·연결’로 풀리며,
   공교롭게 양쪽 모두 <b class="k">‘배당(분배) 데이터’</b>가 공통의 약한 고리다.</div>
 
-  <h2>📑 문서</h2>
+  <h2>🎯 핵심 실증</h2>
+  <a class="feature" href="과세계보_금융세제사태_도표_게시용_20260723.html">
+    <span class="tag">실증 · 사례 계보</span>
+    <h3>과세계보 오류 지점 도표 — 발행사 기업행위에서 국내 과표까지</h3>
+    <p>이 저장소의 명제(<b>④배당 · 소득성격 단절</b>)를 <b>실제 사례로 입증</b>한다. 발행사 8937·KSD 정보공개 회신을 근거로,
+    소득성격이 어디서 끊기고 그 피해가 어디까지 번지는지를 권위 위계 · 단절 사례 계보 · 전국 규모로 도표화했다.</p>
+    <div class="stats">
+      <span class="stat">TSLY 2024.1·2 구 ISIN 재분류 단절</span>
+      <span class="stat">ROC 100% → 배당 과세</span>
+      <span class="stat">전국 Gross $15.99M · KSD 회신</span>
+      <span class="stat">국내 피해 추정 ≈ 85억(가정)</span>
+      <span class="stat">KSD 이중 자백</span>
+    </div>
+    <div class="go">도표 열기 →</div>
+  </a>
+  <p style="font-size:12.5px;color:#555;margin:8px 2px 0">발행사·국가기관 문서와 납세자 청구서로만 구성한 구조 자료이며, 개별 세액의 당부는 과세관청의 판단 영역이다. 피해 규모는 제시된 가정(중간값 세율·환율)에 따른 추정치다.</p>
+
+  <h2>📑 분석 문서</h2>
   <div class="cards">
     <a class="card" href="MSCI낙제_금융세제데이터인프라_비교.html">
       <span class="tag">분석</span>
@@ -75,13 +107,14 @@
   <ul class="points">
     <li><b>MSCI 5대 사유</b> — ①역외 원화 ②투자자 등록·계좌 ③거래소 데이터 사용 ④배당 절차 ⑤공매도 운영</li>
     <li><b>금융세제 단절</b> — 소득성격이 발행사 → QI → <b class="k">KSD·증권사 단계에서 단절</b> → 자본환급(ROC)이 배당으로 이중과세</li>
+    <li><b>실증</b> — <b class="k">TSLY 2024.1·2월</b> 역병합 구 ISIN 재분류 단절로 ROC 100%가 배당 과세. 전국 Gross <b class="k">$15.99M</b>(KSD 회신)이나 국가는 투자자 수조차 산정 불가</li>
     <li><b>공통 처방</b> — 이미 보유한 데이터를 연결하는 <b class="k">단일 표준</b>(분배정보 표준)으로 MSCI 개선 + ROC 해소 동시 달성</li>
     <li><b>거버넌스</b> — 재정경제부 총괄, 금융위·KRX·KSD·증권사·한국은행 협의체, 표준·고시·업무규정 수준(무입법 우선)</li>
   </ul>
 
   <footer>
     이 페이지는 정적 HTML로 작성되었으며 GitHub Pages로 게시할 수 있습니다.<br>
-    Source: <code>index.html</code> · <code>README.md</code> · 두 분석 문서
+    Source: <code>index.html</code> · <code>README.md</code> · 두 분석 문서 · <code>과세계보_금융세제사태_도표_게시용_20260723.html</code>
   </footer>
 
 </div>
